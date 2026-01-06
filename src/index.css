@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+
+
+.product_card{
+    transition: transform 0.1s ease;
+}
+
+.product_card:hover{
+    transform: scale(1.03);
+}
+
+.choose_icon{
+    transition: transform 0.1s ease;
+}
+
+.choose_icon:hover{
+    transform: scale(1.05);
+}
+
+
+.brand_image_container{
+    transition: transform 0.1s ease;
+}
+
+.brand_image_container:hover{
+    transform: scale(1.03);
+}
