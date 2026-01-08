@@ -26,3 +26,9 @@
 .brand_image_container:hover{
     transform: scale(1.03);
 }
+
+@media (min-width:1023px) and (max-width:1200px){
+    .product_card{
+        width: 260px;
+    }
+}

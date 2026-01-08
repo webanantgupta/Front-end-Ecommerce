@@ -115,7 +115,7 @@ const Footer = () => {
         </div>
         <div>
           <p>
-            Powered By <Link to={"https://onebigbit.com/"} target="_blank" className="text-blue-500">Onebigbit Technologies Private Limited</Link>
+            Powered By <Link className="text-blue-500">OpenCart.com</Link>
           </p>
         </div>
       </div>

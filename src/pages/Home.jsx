@@ -5,13 +5,16 @@ import HeroImageCarousal from "../components/HeroImageCarousal";
 import PopularBrands from "../components/PopularBrands";
 import Footer from "../common/Footer";
 import { HiOutlineCurrencyDollar } from "react-icons/hi2";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [data, setData] = useState([]);
 
+  const navigate = useNavigate();
+
   const fetchData = async () => {
     return await axios
-      .get("https://dummyjson.com/products?limit=100")
+      .get("https://dummyjson.com/products?limit=10")
       .then((result) => {
         console.log(result.data.products);
         const products = result.data.products;
@@ -31,13 +34,13 @@ const Home = () => {
       <HeroImageCarousal />
       <div className=" mx-2 my-5 p-5 sm:mx-2 sm:p-2 md:mx-6 md:p-10 lg:mx-20 ">
         <Choose />
-        <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-10 py-10">
+        <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3  gap-10 py-10">
           {data &&
             data.map((obj) => {
               return (
                 <div
                   key={obj.id}
-                  className="bg-slate-200 product_card flex flex-col justify-evenly rounded-2xl p-5"
+                  className="bg-slate-200 product_card flex flex-col justify-evenly rounded-2xl p-5 "
                 >
                   <img
                     src={obj.thumbnail}
@@ -55,11 +58,11 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex justify-between">
-                    <div>
-                        quantity
-                    </div>
-                    <button className="bg-blue-500 px-10 py-1 cursor-pointer rounded-[8px]">Add</button>
+                  <div className="flex justify-evenly lg:gap-5 lg:justify-center xl:justify-between">
+                    <button onClick={()=> navigate("/view", {state:obj})} className="bg-slate-200 border-2 hover:bg-blue-500 hover:text-white hover:border-blue-500 px-10 py-1 rounded-lg text-black cursor-pointer">
+                        View
+                    </button>
+                    <button className="bg-blue-500 hover:text-black px-10 py-1 cursor-pointer rounded-lg text-white">Add</button>
                   </div>
                 </div>
               );
@@ -67,7 +70,6 @@ const Home = () => {
         </div>
         <PopularBrands />
       </div>
-      <Footer />
     </div>
   );
 };
