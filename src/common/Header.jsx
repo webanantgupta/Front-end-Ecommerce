@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 const Header = () =>{
     return (
          <div className="bg-slate-200 flex justify-between items-center h-20 px-5">
-      <div>
+      <Link to={"/"}>
         <img src={logo} alt="logo" className="h-20 rounded-2xl p-2" />
-      </div>
+      </Link>
       <div className="flex justify-between items-center rounded-t-4xl ">
         <div className="">
           <input
@@ -27,7 +27,7 @@ const Header = () =>{
         <MdOutlineShoppingCart className="text-3xl" />
         </Link>
         <div className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex justify-center items-center">
-            0
+            {0}
         </div>
       </div>
     </div>
